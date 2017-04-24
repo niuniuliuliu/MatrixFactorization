@@ -2,32 +2,11 @@
  * Created by ck on 24/04/2017.
  * MF with regulation
  */
-class MFR {
+let MF = require('./mf');
+class MFR extends MF {
     constructor(matrix, steps = 5000, alpha = 0.0002, beta = 0.02, k = 2) {
-        this.m = 0;
-        this.n = 0;
-        this.p = [];
-        this.q = [];
-        this.error = 0;
-        if (Object.prototype.toString.call(matrix) !== '[object Array]')
-            throw 'matrix should be an array';
-        if (matrix.length === 0) {
-            throw 'invalid matrix length';
-        } else {
-            this.m = matrix.length;
-            if (Object.prototype.toString.call(matrix[0]) !== '[object Array]')
-                throw 'matrix should be an array';
-            this.n = matrix[0].length;
-            if (this.n === 0) throw  'invalid matrix length';
-        }
-        this.matrix = matrix;
-        this.steps = steps;
-        this.alpha = alpha;
+        super(matrix);
         this.beta = beta;
-        this.k = k;
-        //initialize p,q
-        this.p = this.initializeMatrix(this.m, this.k);
-        this.q = this.initializeMatrix(this.n, this.k);
     }
 
     run() {
@@ -53,24 +32,6 @@ class MFR {
             this.error = error;
             this.steps--;
         }
-    }
-
-    initializeMatrix(m, n) {
-        let matrix = [];
-        for (let i = 0; i < m; i++) {
-            let arr = [];
-            for (let j = 0; j < n; j++) {
-                let rd = this.roundNumber(Math.random());
-                arr.push(rd);
-            }
-            matrix.push(arr);
-        }
-        return matrix;
-    }
-
-    roundNumber(num) {
-        let r = Math.pow(10, 6);
-        return Math.round(num * r) / r;
     }
 }
 module.exports = MFR;
