@@ -1,0 +1,23 @@
+{
+  "name": "matrix_factorization",
+  "version": "1.0.0",
+  "description": "matrix factorization implementation in node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niuniuliuliu/MatrixFactorization.git"
+  },
+  "keywords": [
+    "matrix",
+    "factorization"
+  ],
+  "author": "ck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niuniuliuliu/MatrixFactorization/issues"
+  },
+  "homepage": "https://github.com/niuniuliuliu/MatrixFactorization#readme"
+}
